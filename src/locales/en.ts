@@ -2,6 +2,7 @@ export default {
 	nav: {
 		features: "Features",
 		download: "Download",
+		documentation: "Docs",
 		about: "GitHub",
 		getStarted: "Get Started",
 	},

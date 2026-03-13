@@ -5,6 +5,7 @@ interface Props {
 	t: {
 		features: string;
 		download: string;
+		documentation: string;
 		about: string;
 		getStarted: string;
 	};
@@ -33,6 +34,13 @@ const { t, currentLang } = Astro.props;
 		</nav>
 
 		<div class="navbar-actions">
+			<md-filled-button
+				href="https://github.com/LanRhyme/MicYou/blob/master/docs/FAQ.md"
+				target="_blank"
+				rel="noopener"
+				class="navbar-docs-button">
+				{t.documentation}
+			</md-filled-button>
 			<md-filled-button href="#download" class="navbar-button" style="min-width: 80px"
 				>{t.getStarted}</md-filled-button
 			>
@@ -118,6 +126,11 @@ const { t, currentLang } = Astro.props;
 		gap: 8px;
 		flex: 1;
 		justify-content: flex-end;
+	}
+
+	.navbar-docs-button {
+		--md-filled-button-container-height: 36px;
+		min-width: 60px;
 	}
 
 	.nav-link {

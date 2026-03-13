@@ -2,6 +2,7 @@ export default {
 	nav: {
 		features: "核心功能",
 		download: "获取应用",
+		documentation: "文档",
 		about: "GitHub",
 		getStarted: "即刻体验",
 	},
