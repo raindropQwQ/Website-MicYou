@@ -49,7 +49,65 @@ const authorUsernames = new Set(['LanRhyme', 'ChinsaaWei'])
 // bot 账号集合
 const botUsernames = new Set(['dependabot[bot]', 'Crowdin Bot'])
 
+// 缓存配置
+const CACHE_KEY = 'contributors-cache'
+const CACHE_DURATION = 24 * 60 * 60 * 1000 // 24 小时
+
+interface CachedData {
+  data: Array<{
+    avatar: string
+    name: string
+    title: string
+    link: string
+  }>
+  timestamp: number
+  lang: string
+}
+
+// 从缓存获取数据
+function getCachedData(): CachedData | null {
+  try {
+    const cached = localStorage.getItem(CACHE_KEY)
+    if (!cached) return null
+
+    const parsed = JSON.parse(cached) as CachedData
+    const now = Date.now()
+
+    // 检查缓存是否过期
+    if (now - parsed.timestamp > CACHE_DURATION) {
+      localStorage.removeItem(CACHE_KEY)
+      return null
+    }
+
+    return parsed
+  } catch {
+    return null
+  }
+}
+
+// 保存数据到缓存
+function setCachedData(data: CachedData['data'], currentLang: string) {
+  try {
+    const cacheData: CachedData = {
+      data,
+      timestamp: Date.now(),
+      lang: currentLang
+    }
+    localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData))
+  } catch {
+    // localStorage 可能已满或不可用，静默失败
+  }
+}
+
 onMounted(async () => {
+  // 先尝试从缓存获取
+  const cached = getCachedData()
+  if (cached && cached.lang === lang.value) {
+    contributors.value = cached.data
+    loading.value = false
+    return
+  }
+
   try {
     const response = await fetch('https://api.github.com/repos/LanRhyme/MicYou/stats/contributors')
     if (!response.ok) throw new Error('Failed to fetch contributors')
@@ -57,7 +115,7 @@ onMounted(async () => {
     const data = await response.json()
 
     // 过滤掉作者和 bot 账号，并按贡献数降序排列
-    contributors.value = data
+    const contributorsData = data
       .filter((c: any) => {
         const login = c.author?.login
         return login && !authorUsernames.has(login) && !botUsernames.has(login) && !login.includes('[bot]')
@@ -69,8 +127,16 @@ onMounted(async () => {
         title: `${c.total} ${t.value.contributions}`,
         link: c.author.html_url
       }))
+
+    contributors.value = contributorsData
+    // 保存到缓存
+    setCachedData(contributorsData, lang.value as string)
   } catch (error) {
     console.error('Failed to load contributors:', error)
+    // 如果请求失败但有旧缓存，仍然使用旧缓存
+    if (cached) {
+      contributors.value = cached.data
+    }
   } finally {
     loading.value = false
   }

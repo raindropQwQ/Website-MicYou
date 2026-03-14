@@ -6,14 +6,17 @@ type Lang = 'zh-CN' | 'en' | 'zh-TW'
 const sidebarTranslations = {
   'zh-CN': {
     docs: '文档',
+    quick_start: '快速开始',
     faq: '常见问题'
   },
   'en': {
     docs: 'Docs',
+    quick_start: 'Quick Start',
     faq: 'FAQ'
   },
   'zh-TW': {
     docs: '文檔',
+    quick_start: '快速開始',
     faq: '常見問題'
   }
 }
@@ -27,6 +30,7 @@ export function docsSidebar(lang: Lang = 'zh-CN'): DefaultTheme.SidebarItem[] {
     {
       text: t.docs,
       items: [
+        {text: t.quick_start, link: `${prefix}/docs/quick-start`},
         { text: t.faq, link: `${prefix}/docs/faq` }
       ]
     }
