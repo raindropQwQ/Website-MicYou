@@ -63,6 +63,6 @@
 
 檢查方式：開啟「設定」> 「聲音」，確保以下兩項均為**已啟用**狀態：
 
-![輸入裝置](https://github.com/user-attachments/assets/1cf5f97f-1647-4fb0-a152-85be2697df39)
+![輸入裝置](/input-device.png)
 
-![輸出裝置](https://github.com/user-attachments/assets/9e9ef42d-186f-42a6-ba4d-7b1a3815f860)
+![輸出裝置](/output-device.png)
