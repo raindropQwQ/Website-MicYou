@@ -23,35 +23,7 @@ const { currentLang } = Astro.props;
 </span>
 
 <script>
-	import "@material/web/iconbutton/icon-button.js";
-	import "@material/web/menu/menu.js";
-	import "@material/web/menu/menu-item.js";
-	import "@material/web/icon/icon.js";
-
-	document.querySelectorAll(".language-switcher").forEach((switcher) => {
-		const anchor = switcher.querySelector("md-icon-button")!;
-		const menu = switcher.querySelector("md-menu");
-		if (!menu || !anchor) return;
-
-		menu.anchorElement = anchor;
-
-		anchor.addEventListener("click", () => {
-			menu.open = !menu.open;
-		});
-
-		menu.querySelectorAll("md-menu-item").forEach((item: HTMLElement) => {
-			item.addEventListener("click", () => {
-				const lang = item.dataset.lang;
-				if (lang) {
-					if (lang === "zh") {
-						window.location.href = "/";
-					} else {
-						window.location.href = `/${lang}/`;
-					}
-				}
-			});
-		});
-	});
+	import "../scripts/languageSwitcher.ts";
 </script>
 
 <style>
