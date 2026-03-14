@@ -5,19 +5,16 @@ type Lang = 'zh-CN' | 'en' | 'zh-TW'
 // 侧边栏翻译
 const sidebarTranslations = {
   'zh-CN': {
-    examples: '示例',
-    markdownExamples: 'Markdown 示例',
-    apiExamples: '运行时 API 示例'
+    docs: '文档',
+    faq: '常见问题'
   },
   'en': {
-    examples: 'Examples',
-    markdownExamples: 'Markdown Examples',
-    apiExamples: 'Runtime API Examples'
+    docs: 'Docs',
+    faq: 'FAQ'
   },
   'zh-TW': {
-    examples: '範例',
-    markdownExamples: 'Markdown 範例',
-    apiExamples: '執行時 API 範例'
+    docs: '文檔',
+    faq: '常見問題'
   }
 }
 
@@ -28,10 +25,9 @@ export function docsSidebar(lang: Lang = 'zh-CN'): DefaultTheme.SidebarItem[] {
 
   return [
     {
-      text: t.examples,
+      text: t.docs,
       items: [
-        { text: t.markdownExamples, link: `${prefix}/docs/markdown-examples` },
-        { text: t.apiExamples, link: `${prefix}/docs/api-examples` }
+        { text: t.faq, link: `${prefix}/docs/faq` }
       ]
     }
   ]

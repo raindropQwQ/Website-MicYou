@@ -4,7 +4,7 @@ import type { DefaultTheme } from 'vitepress'
 // 导航栏
 export const nav: DefaultTheme.NavItem[] = [
   { text: '首页', link: '/' },
-  { text: '使用指南', link: 'https://github.com/LanRhyme/MicYou#使用指南' },
+  { text: '文档', link: '/docs/faq' },
   { text: '下载', link: 'https://github.com/LanRhyme/MicYou/releases/latest' }
 ]
 

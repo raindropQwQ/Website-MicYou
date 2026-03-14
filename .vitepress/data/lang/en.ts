@@ -4,7 +4,7 @@ import type { DefaultTheme } from 'vitepress'
 // Navigation
 export const nav: DefaultTheme.NavItem[] = [
   { text: 'Home', link: '/en/' },
-  { text: 'Guide', link: 'https://github.com/LanRhyme/MicYou#usage-guide' },
+  { text: 'Docs', link: '/en/docs/faq' },
   { text: 'Download', link: 'https://github.com/LanRhyme/MicYou/releases/latest' }
 ]
 
