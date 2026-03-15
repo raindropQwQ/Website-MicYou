@@ -47,7 +47,7 @@ const loading = ref(true);
 const authorUsernames = new Set(["LanRhyme", "ChinsaaWei"]);
 
 // bot 账号集合
-const botUsernames = new Set(["dependabot[bot]", "Crowdin Bot"]);
+const botUsernames = new Set(["dependabot[bot]", "crowdin-bot"]);
 
 // 缓存配置
 const CACHE_KEY = "contributors-cache";
