@@ -110,4 +110,56 @@ defineProps<Props>();
   flex-grow: 1;
   text-decoration: none;
 }
+
+/* 平板竖屏优化 */
+@media (max-width: 768px) {
+  .ContributorsItem .profile {
+    padding: 20px;
+  }
+
+  .ContributorsItem .avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ContributorsItem .name {
+    font-size: 15px;
+  }
+
+  .ContributorsItem .desc {
+    font-size: 13px;
+  }
+}
+
+/* 手机竖屏优化 */
+@media (max-width: 480px) {
+  .ContributorsItem .profile {
+    padding: 16px 12px;
+  }
+
+  .ContributorsItem .data {
+    padding-top: 12px;
+  }
+
+  .ContributorsItem .avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .ContributorsItem .name {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .ContributorsItem .desc {
+    font-size: 12px;
+    padding-top: 4px;
+    line-height: 16px;
+  }
+
+  /* 减小悬停效果幅度 */
+  .ContributorsItem:hover {
+    transform: translateY(-3px);
+  }
+}
 </style>

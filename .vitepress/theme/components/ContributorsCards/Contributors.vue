@@ -249,10 +249,44 @@ onMounted(async () => {
   list-style: none;
 }
 
-@media (max-width: 640px) {
+/* 平板竖屏优化 */
+@media (max-width: 768px) {
+  .contributors-section {
+    padding: 0 16px;
+  }
+
+  .section-title {
+    margin: 32px 0 20px;
+    font-size: 1.125rem;
+  }
+
+  .contributors-grid {
+    gap: 16px;
+  }
+}
+
+/* 手机竖屏优化 */
+@media (max-width: 480px) {
+  .contributors-section {
+    margin-top: 32px;
+    padding: 0 12px;
+  }
+
+  .section-title {
+    margin: 24px 0 16px;
+    font-size: 1rem;
+    padding-bottom: 4px;
+  }
+
+  /* 作者卡片改为单列 */
+  .authors-wrapper :deep(.VPTeamMembers.small .container) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
   .contributors-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
   }
 }
 </style>
