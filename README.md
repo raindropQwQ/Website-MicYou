@@ -51,7 +51,7 @@ pnpm preview
 |------------|---------|---------|
 | [VitePress](https://vitepress.dev/) | 2.0.0-alpha | Static site generator |
 | [Vue](https://vuejs.org/) | 3.5 | Frontend framework |
-| [@theojs/lumen](https://github.com/Theo-M/mp-lumen) | 6.4 | Theme components |
+| [@theojs/lumen](https://github.com/s-theo/lumen) | 6.4 | Theme components |
 | [pnpm](https://pnpm.io/) | 10.x | Package manager |
 
 ## Project Structure

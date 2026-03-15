@@ -210,5 +210,5 @@ Execute:
 
 - [VitePress Documentation](https://vitepress.dev/)
 - [Vue 3 Documentation](https://vuejs.org/)
-- [@theojs/lumen](https://github.com/Theo-M/mp-lumen)
+- [@theojs/lumen](https://github.com/s-theo/lumen)
 - [pnpm Documentation](https://pnpm.io/)
