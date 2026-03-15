@@ -1,6 +1,6 @@
 # QWEN.md - MicYou Website
 
-> 项目上下文与开发指南，供 AI 助手参考。
+> Project context and development guide for AI assistants.
 
 ## Project Overview
 
@@ -15,44 +15,47 @@ MicYou Website is the official documentation site for the MicYou application. Mi
 
 ## Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| VitePress 2.0.0-alpha | Static site generator |
-| Vue 3.5 | Frontend framework |
-| @theojs/lumen 6.4 | Theme component library |
-| pnpm 10.x | Package manager |
-| TypeScript | Type support |
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| VitePress | 2.0.0-alpha | Static site generator |
+| Vue | 3.5 | Frontend framework |
+| @theojs/lumen | 6.4 | Theme component library |
+| pnpm | 10.x | Package manager |
+| TypeScript | - | Type support |
+| Biome | 2.x | Code formatting and linting |
 
 ## Project Structure
 
 ```
-.
-├── .agent/              # AI agent configuration (archived)
+Website-MicYou/
+├── .agent/                 # AI agent configuration
+│   ├── AGENT.md            # Agent guide
+│   └── Skill.md            # Skill definitions
 ├── .github/
-│   └── workflows/       # GitHub Actions deployment
+│   └── workflows/          # GitHub Actions deployment
 ├── .vitepress/
-│   ├── config.mts       # Main VitePress config
-│   ├── cache/           # Build cache
-│   ├── data/            # i18n translation data
-│   │   ├── i18n.ts      # Translation entry
-│   │   └── lang/        # Language files
-│   │       ├── zh.ts    # Simplified Chinese
-│   │       ├── en.ts    # English
-│   │       └── zh_tw.ts # Traditional Chinese
-│   ├── theme/           # Custom theme
-│   │   ├── index.ts     # Theme entry
-│   │   ├── style.css    # Custom styles
-│   │   └── components/  # Custom components
-│   └── dist/            # Build output
+│   ├── config.mts          # Main VitePress config
+│   ├── cache/              # Build cache
+│   ├── data/               # i18n translation data
+│   │   ├── i18n.ts         # Translation entry
+│   │   └── lang/           # Language files
+│   │       ├── zh.ts       # Simplified Chinese
+│   │       ├── en.ts       # English
+│   │       └── zh_tw.ts    # Traditional Chinese
+│   ├── theme/              # Custom theme
+│   │   ├── index.ts        # Theme entry
+│   │   ├── style.css       # Custom styles
+│   │   └── components/     # Custom components
+│   └── dist/               # Build output
 ├── src/
-│   ├── index.md         # Homepage
-│   ├── docs/            # Documentation pages
-│   │   ├── sidebar.ts   # Sidebar config
+│   ├── index.md            # Homepage
+│   ├── docs/               # Documentation pages
+│   │   ├── sidebar.ts      # Sidebar config
 │   │   ├── quick-start.md
 │   │   └── faq.md
-│   ├── en/              # English content
-│   ├── zh-TW/           # Traditional Chinese content
-│   └── public/          # Static assets
+│   ├── en/                 # English content
+│   ├── zh-TW/              # Traditional Chinese content
+│   └── public/             # Static assets
 ├── package.json
 └── pnpm-lock.yaml
 ```
@@ -64,6 +67,8 @@ pnpm install     # Install dependencies
 pnpm dev         # Start development server
 pnpm build       # Build for production
 pnpm preview     # Preview build result
+pnpm lint        # Run linter
+pnpm format      # Format code
 ```
 
 ## Internationalization (i18n)
@@ -88,11 +93,13 @@ Three languages are supported:
 
 The project uses the `@theojs/lumen` theme component library, providing:
 
-- `Footer` - Footer component
-- `BoxCube` - Box display component
-- `Card` - Card component
-- `Links` - Links component
-- `Pill` - Pill tag component
+| Component | Description |
+|-----------|-------------|
+| `Footer` | Footer component |
+| `BoxCube` | Box display component |
+| `Card` | Card component |
+| `Links` | Links component |
+| `Pill` | Pill tag component |
 
 ### Custom Components
 
@@ -133,8 +140,8 @@ Content...
 
 ```markdown
 ---
-title: 快速开始 - MicYou 安装配置指南
-description: MicYou 快速开始指南，详细介绍如何在 Windows、macOS、Linux 和 Android 上安装和配置 MicYou。
+title: Quick Start - MicYou Installation Guide
+description: MicYou quick start guide with detailed installation and configuration instructions for Windows, macOS, Linux, and Android.
 ---
 ```
 
@@ -281,7 +288,9 @@ Check if multi-language content is synchronized.
 
 ## Related Links
 
-- [VitePress Documentation](https://vitepress.dev/)
-- [Vue 3 Documentation](https://vuejs.org/)
-- [@theojs/lumen](https://github.com/s-theo/lumen)
-- [pnpm Documentation](https://pnpm.io/)
+| Resource | Link |
+|----------|------|
+| VitePress Documentation | https://vitepress.dev/ |
+| Vue 3 Documentation | https://vuejs.org/ |
+| @theojs/lumen | https://github.com/s-theo/lumen |
+| pnpm Documentation | https://pnpm.io/ |

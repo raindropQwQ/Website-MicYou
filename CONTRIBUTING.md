@@ -1,12 +1,14 @@
 # Contributing to MicYou Website
 
-Thank you for your interest in contributing! This guide will help you get started.
+Thank you for your interest in contributing to MicYou Website! This guide will help you get started.
 
 ## Quick Links
 
-- [Issue Tracker](https://github.com/LanRhyme/Website-MicYou/issues)
-- [Pull Requests](https://github.com/LanRhyme/Website-MicYou/pulls)
-- [Telegram Channel](https://t.me/MicYouChannel)
+| Resource | Link |
+|----------|------|
+| Issue Tracker | [GitHub Issues](https://github.com/LanRhyme/Website-MicYou/issues) |
+| Pull Requests | [GitHub PRs](https://github.com/LanRhyme/Website-MicYou/pulls) |
+| Telegram Channel | [@MicYouChannel](https://t.me/MicYouChannel) |
 
 ## Ways to Contribute
 
@@ -32,8 +34,10 @@ Found a bug or have a suggestion?
 
 ### Requirements
 
-- Node.js 22+
-- pnpm 10+
+| Dependency | Version |
+|------------|---------|
+| Node.js | >= 22 |
+| pnpm | >= 10 |
 
 ### Getting Started
 
@@ -56,6 +60,8 @@ pnpm dev
 | `pnpm dev` | Start development server |
 | `pnpm build` | Build for production |
 | `pnpm preview` | Preview production build |
+| `pnpm lint` | Run linter |
+| `pnpm format` | Format code |
 
 ## Coding Standards
 
@@ -79,14 +85,18 @@ Follow conventional commits format:
 ```
 
 **Types:**
-- `feat` - New feature
-- `fix` - Bug fix
-- `docs` - Documentation changes
-- `style` - Code style changes (formatting)
-- `refactor` - Code refactoring
-- `chore` - Maintenance tasks
+
+| Type | Description |
+|------|-------------|
+| `feat` | New feature |
+| `fix` | Bug fix |
+| `docs` | Documentation changes |
+| `style` | Code style changes (formatting) |
+| `refactor` | Code refactoring |
+| `chore` | Maintenance tasks |
 
 **Examples:**
+
 ```
 feat: add Japanese language support
 fix: resolve broken link in quick-start.md
@@ -105,36 +115,39 @@ docs: update FAQ with new troubleshooting steps
 ### Adding New Pages
 
 1. Create the page in all supported languages:
-   ```
-   src/docs/new-page.md          # Chinese (default)
-   src/en/docs/new-page.md       # English
-   src/zh-TW/docs/new-page.md    # Traditional Chinese
-   ```
+
+```
+src/docs/new-page.md          # Chinese (default)
+src/en/docs/new-page.md       # English
+src/zh-TW/docs/new-page.md    # Traditional Chinese
+```
 
 2. Update `src/docs/sidebar.ts`:
-   ```ts
-   const sidebarTranslations = {
-     'zh-CN': { /* add translation */ },
-     'en': { /* add translation */ },
-     'zh-TW': { /* add translation */ }
-   }
-   ```
+
+```ts
+const sidebarTranslations = {
+  'zh-CN': { /* add translation */ },
+  'en': { /* add translation */ },
+  'zh-TW': { /* add translation */ }
+}
+```
 
 ### Markdown Guidelines
 
-- Use proper heading hierarchy (h1 → h2 → h3)
-- Include language in code blocks:
-  ````markdown
-  ```bash
-  pnpm install
-  ```
-  ````
+- Use proper heading hierarchy (h1 -> h2 -> h3)
+- Include language in code blocks
 - Keep lines under 100 characters
 - Use relative links for internal references
 
+```markdown
+```bash
+pnpm install
+```
+```
+
 ### Frontmatter Requirements
 
-All documentation pages **must** include frontmatter at the beginning of the file:
+All documentation pages **must** include frontmatter at the beginning:
 
 ```markdown
 ---
@@ -151,23 +164,16 @@ Content...
 
 | Field | Description | Example |
 |-------|-------------|---------|
-| `title` | Page title with site name | `快速开始 - MicYou 安装配置指南` |
-| `description` | SEO description (150-160 characters recommended) | `MicYou 快速开始指南，详细介绍如何安装和配置 MicYou。` |
-
-**Special pages:**
-
-- Homepage uses `layout: home` with additional hero and features configuration
-- See existing files for reference patterns
+| `title` | Page title with site name | `Quick Start - MicYou Installation Guide` |
+| `description` | SEO description (150-160 characters recommended) | `MicYou quick start guide with detailed installation and configuration instructions.` |
 
 ### Image Guidelines
 
 - **Do not use external image links** (e.g., GitHub issue attachments, external URLs)
 - Place all images in `src/public/` folder
-- Reference images using root-relative paths:
-  ```markdown
-  ![Description](/image-name.png)
-  ```
+- Reference images using root-relative paths: `![Description](/image-name.png)`
 - Use descriptive file names (e.g., `input-device.png`, `output-device.png`)
+- Supported formats: PNG, JPG, SVG, WebP, GIF
 
 ### Translation Guidelines
 
