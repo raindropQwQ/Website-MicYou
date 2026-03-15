@@ -140,6 +140,30 @@ a:focus-visible {
 	line-height: 1.2;
 }
 
+/**
+ * Image Optimization - 图片尺寸优化
+ * 为图片设置固定尺寸以减少布局偏移 (CLS)
+ * -------------------------------------------------------------------------- */
+
+/* Hero 图片 - 固定尺寸减少 CLS */
+.VPHero .VPImage.image-src {
+	width: 192px;
+	height: 192px;
+	aspect-ratio: 1 / 1;
+}
+
+/* 导航栏 Logo - 固定尺寸 */
+.VPNavBar .VPImage.logo {
+	width: 24px;
+	height: 24px;
+	aspect-ratio: 1 / 1;
+}
+
+/* 确保图片按比例缩放 */
+.VPImage {
+	object-fit: contain;
+}
+
 .VPTeamMembers .item:hover {
 	transform: translateY(-5px); /* 向上移动 */
 }

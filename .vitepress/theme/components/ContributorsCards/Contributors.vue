@@ -24,7 +24,10 @@ const authors = computed(() => [
 		title: t.value.author,
 		links: [
 			{ icon: "github", link: "https://github.com/LanRhyme" },
-			{ icon: { svg: svgIcon.bilibili }, link: "https://space.bilibili.com/496901387" },
+			{
+				icon: { svg: svgIcon.bilibili },
+				link: "https://space.bilibili.com/496901387",
+			},
 		],
 	},
 	{
@@ -33,7 +36,10 @@ const authors = computed(() => [
 		title: t.value.author,
 		links: [
 			{ icon: "github", link: "https://github.com/ChinsaaWei" },
-			{ icon: { svg: svgIcon.bilibili }, link: "https://space.bilibili.com/38902304" },
+			{
+				icon: { svg: svgIcon.bilibili },
+				link: "https://space.bilibili.com/38902304",
+			},
 		],
 	},
 ]);
@@ -140,15 +146,21 @@ onMounted(async () => {
 
 		// 过滤掉作者和 bot 账号，并按贡献数降序排列
 		const contributorsData = data
-			.filter((c): c is GitHubContributor & { author: NonNullable<GitHubContributor["author"]> } => {
-				const login = c.author?.login;
-				return (
-					login !== undefined &&
-					!authorUsernames.has(login) &&
-					!botUsernames.has(login) &&
-					!login.includes("[bot]")
-				);
-			})
+			.filter(
+				(
+					c,
+				): c is GitHubContributor & {
+					author: NonNullable<GitHubContributor["author"]>;
+				} => {
+					const login = c.author?.login;
+					return (
+						login !== undefined &&
+						!authorUsernames.has(login) &&
+						!botUsernames.has(login) &&
+						!login.includes("[bot]")
+					);
+				},
+			)
 			.sort((a, b) => b.total - a.total)
 			.map((c) => ({
 				avatar: `${c.author.avatar_url}&size=80`,

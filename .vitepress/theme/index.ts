@@ -4,7 +4,14 @@ import { useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { h } from "vue";
 import "@theojs/lumen/style";
-import { BoxCube, Card, Footer, Links, Pill, umamiAnalytics } from "@theojs/lumen";
+import {
+	BoxCube,
+	Card,
+	Footer,
+	Links,
+	Pill,
+	umamiAnalytics,
+} from "@theojs/lumen";
 import { getFooterData, type Lang } from "../data/i18n";
 import Contributors from "./components/ContributorsCards/Contributors.vue";
 import DownloadSection from "./components/DownloadSection/DownloadSection.vue";
@@ -49,8 +56,8 @@ export default {
 		app.component("DownloadSection", DownloadSection);
 		// 注册 Umami Analytics 插件
 		umamiAnalytics({
-			id: '7f5e889c-6a31-4074-95b7-78d52bb559ce', 
-			src: 'https://umami.micyou.top/script.js', 
-		}) 
+			id: "7f5e889c-6a31-4074-95b7-78d52bb559ce",
+			src: "https://umami.micyou.top/script.js",
+		});
 	},
 } satisfies Theme;
