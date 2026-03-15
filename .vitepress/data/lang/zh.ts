@@ -26,7 +26,7 @@ export const contributors = {
 	author: "作者",
 	contributions: "次贡献",
 	developedWith: "MicYou 用 ❤ 发电",
-	thanksContributors: "感谢以下贡献者，TA们让McYou变得更好",
+	thanksContributors: "感谢以下贡献者，TA们让MicYou变得更好",
 };
 
 // 下载组件翻译
