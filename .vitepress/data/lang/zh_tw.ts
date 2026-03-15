@@ -15,6 +15,10 @@ export const nav: DefaultTheme.NavItem[] = [
 		text: '<iconify-icon class="i-mr" icon="mdi:download" style="color:#20c997"></iconify-icon>下載',
 		link: "/zh-TW/download",
 	},
+	{
+		text: '<iconify-icon class="i-mr" icon="mdi:video" style="color:#9c27b0"></iconify-icon>影片',
+		link: "/zh-TW/video",
+	},
 ];
 
 // 貢獻者組件翻譯
