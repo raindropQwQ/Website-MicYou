@@ -4,6 +4,7 @@ import { useData } from "vitepress";
 import VPTeamMembers from "vitepress/dist/client/theme-default/components/VPTeamMembers.vue";
 import ContributorsItem from "./ContributorsItem.vue";
 import { contributorsTranslations, type Lang } from "../../../data/i18n";
+import { svgIcon } from "../../icon";
 
 const { lang } = useData();
 
@@ -21,13 +22,19 @@ const authors = computed(() => [
 		avatar: "https://github.com/LanRhyme.png?size=80",
 		name: "LanRhyme",
 		title: t.value.author,
-		links: [{ icon: "github", link: "https://github.com/LanRhyme" }],
+		links: [
+			{ icon: "github", link: "https://github.com/LanRhyme" },
+			{ icon: { svg: svgIcon.bilibili }, link: "https://space.bilibili.com/496901387" },
+		],
 	},
 	{
 		avatar: "https://github.com/ChinsaaWei.png?size=80",
 		name: "ChinsaaWei",
 		title: t.value.author,
-		links: [{ icon: "github", link: "https://github.com/ChinsaaWei" }],
+		links: [
+			{ icon: "github", link: "https://github.com/ChinsaaWei" },
+			{ icon: { svg: svgIcon.bilibili }, link: "https://space.bilibili.com/38902304" },
+		],
 	},
 ]);
 
