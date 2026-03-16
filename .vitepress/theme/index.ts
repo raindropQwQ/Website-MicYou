@@ -16,6 +16,7 @@ import {
 import { getFooterData, type Lang } from "../data/i18n";
 import Contributors from "./components/ContributorsCards/Contributors.vue";
 import DownloadSection from "./components/DownloadSection/DownloadSection.vue";
+import WebVitals from "./components/WebVitals.vue";
 import "./style.css";
 
 export default {
@@ -43,7 +44,10 @@ export default {
 				const { lang } = useData();
 				const currentLang = (lang.value || "zh-CN") as Lang;
 				const footerData = getFooterData(currentLang);
-				return h(Footer, { Footer_Data: footerData });
+				return h("div", [
+					h(WebVitals),
+					h(Footer, { Footer_Data: footerData }),
+				]);
 			},
 		});
 	},
