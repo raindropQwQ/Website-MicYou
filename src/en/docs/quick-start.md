@@ -9,10 +9,11 @@ description: MicYou quick start guide with detailed instructions on how to insta
 
 Download from [Android Developers](https://developer.android.com/tools/releases/platform-tools?hl=zh_cn), or install via package manager:
 
-- `winget install -e --id Google.PlatformTools` (Windows)
-- `sudo apt install android-tools-adb` (Ubuntu/Debian)
-- `sudo pacman -S android-tools` (Arch)
-- Other platforms, please refer to [official documentation](https://developer.android.com/tools/releases/platform-tools)
+- <Copy text="winget install -e --id Google.PlatformTools" type="info" />
+- <Copy text="sudo apt install android-tools-adb" type="info" />
+- <Copy text="sudo pacman -S android-tools" type="info" />
+
+Other platforms, please refer to [official documentation](https://developer.android.com/tools/releases/platform-tools)
 
 ### 2. Enable USB Debugging
 

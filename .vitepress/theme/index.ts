@@ -7,6 +7,7 @@ import "@theojs/lumen/style";
 import {
 	BoxCube,
 	Card,
+	CopyText,
 	Footer,
 	Links,
 	Pill,
@@ -52,6 +53,7 @@ export default {
 		app.component("Card", Card);
 		app.component("Links", Links);
 		app.component("Pill", Pill);
+		app.component("Copy", CopyText);
 		app.component("Contributors", Contributors);
 		app.component("DownloadSection", DownloadSection);
 		// 注册 Umami Analytics 插件
