@@ -17,9 +17,6 @@ importers:
       vue:
         specifier: ^3.5.30
         version: 3.5.30(typescript@5.9.3)
-      web-vitals:
-        specifier: ^5.1.0
-        version: 5.1.0
     devDependencies:
       '@mdit/plugin-figure':
         specifier: ^0.23.1
@@ -998,9 +995,6 @@ packages:
       typescript:
         optional: true
 
-  web-vitals@5.1.0:
-    resolution: {integrity: sha512-ArI3kx5jI0atlTtmV0fWU3fjpLmq/nD3Zr1iFFlJLaqa5wLBkUSzINwBPySCX/8jRyjlmy1Volw1kz1g9XE4Jg==}
-
   wrap-ansi@9.0.2:
     resolution: {integrity: sha512-42AtmgqjV+X1VpdOfyTGOYRi0/zsoLqtXQckTmqTeybT+BDIbM/Guxo7x3pE2vtpr1ok6xRqM9OpBe+Jyoqyww==}
     engines: {node: '>=18'}
@@ -1875,8 +1869,6 @@ snapshots:
       '@vue/shared': 3.5.30
     optionalDependencies:
       typescript: 5.9.3
-
-  web-vitals@5.1.0: {}
 
   wrap-ansi@9.0.2:
     dependencies:
