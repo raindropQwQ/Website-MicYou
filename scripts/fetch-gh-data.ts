@@ -1,13 +1,49 @@
-// @ts-nocheck
-
 /**
  * 从 GitHub API 获取贡献者和发布数据，保存到 public/ghdata.json
  * 用于避免客户端 API 调用触发速率限制
  */
 
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+type FsModule = {
+	existsSync: (path: string) => boolean;
+	readFileSync: (path: string, encoding: string) => string;
+	writeFileSync: (path: string, data: string, encoding: string) => void;
+};
+
+type PathModule = {
+	dirname: (path: string) => string;
+	join: (...paths: string[]) => string;
+};
+
+type UrlModule = {
+	fileURLToPath: (url: string | URL) => string;
+};
+
+type ProcessLike = {
+	env: Record<string, string | undefined>;
+	exit: (code?: number) => never;
+	getBuiltinModule: (id: string) => unknown;
+};
+
+function getProcessLike(): ProcessLike {
+	const processLike = (
+		globalThis as typeof globalThis & { process?: ProcessLike }
+	).process;
+
+	if (!processLike?.getBuiltinModule) {
+		throw new Error("Node built-in modules are unavailable in this runtime");
+	}
+
+	return processLike;
+}
+
+const processLike = getProcessLike();
+
+const { existsSync, readFileSync, writeFileSync } =
+	processLike.getBuiltinModule("node:fs") as FsModule;
+const { dirname, join } = processLike.getBuiltinModule(
+	"node:path",
+) as PathModule;
+const { fileURLToPath } = processLike.getBuiltinModule("node:url") as UrlModule;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -311,7 +347,7 @@ async function main() {
 	console.log("Fetching GitHub data...");
 
 	// GitHub Token 可通过环境变量 GITHUB_TOKEN 设置
-	const token = process.env.GITHUB_TOKEN;
+	const token = processLike.env.GITHUB_TOKEN;
 
 	try {
 		// 并行获取数据
@@ -378,7 +414,7 @@ async function main() {
 		console.log(`✓ Saved to: ${CHANGELOG_OUTPUT_FILE}`);
 	} catch (error) {
 		console.error("Failed to fetch GitHub data:", error);
-		process.exit(1);
+		processLike.exit(1);
 	}
 }
 
