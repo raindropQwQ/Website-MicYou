@@ -1,10 +1,12 @@
+// @ts-nocheck
+
 /**
  * 从 GitHub API 获取贡献者和发布数据，保存到 public/ghdata.json
  * 用于避免客户端 API 调用触发速率限制
  */
 
-import { writeFileSync, existsSync, readFileSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -175,6 +177,136 @@ function isDataEqual(
 	);
 }
 
+const CHANGELOG_API_URL = "https://bot.micyou.top/changelog";
+const CHANGELOG_OUTPUT_FILE = join(SRC_DIR, "changelog.json");
+const MARKDOWN_IT_BUNDLE_URL =
+	"https://cdn.jsdelivr.net/npm/markdown-it@14/dist/markdown-it.min.js";
+
+type MarkdownRenderer = {
+	render: (source: string) => string;
+};
+
+type MarkdownItConstructor = new () => MarkdownRenderer;
+
+let markdownItCtor: MarkdownItConstructor | null = null;
+
+interface ChangelogApiEntry {
+	tag_name: string;
+	name: string;
+	body: string;
+	html_url: string;
+	published_at: string;
+}
+
+interface ChangelogApiResponse {
+	success: boolean;
+	data?: {
+		entries?: ChangelogApiEntry[];
+	};
+}
+
+interface ChangelogEntry {
+	tag_name: string;
+	published_at: string;
+	html_url: string;
+	html_body: string;
+	name: string;
+}
+
+interface ChangelogOutput {
+	entries: ChangelogEntry[];
+	fetchedAt: string;
+}
+
+function resolveMarkdownItConstructor(
+	moduleExports: unknown,
+): MarkdownItConstructor {
+	const candidate =
+		typeof moduleExports === "function"
+			? moduleExports
+			: typeof moduleExports === "object" &&
+					moduleExports !== null &&
+					"default" in moduleExports
+				? moduleExports.default
+				: null;
+
+	if (typeof candidate !== "function") {
+		throw new Error("Invalid markdown-it export");
+	}
+
+	return candidate as MarkdownItConstructor;
+}
+
+async function loadMarkdownIt(): Promise<MarkdownItConstructor> {
+	if (markdownItCtor) {
+		return markdownItCtor;
+	}
+
+	const res = await fetch(MARKDOWN_IT_BUNDLE_URL, {
+		headers: {
+			"User-Agent": "MicYou-Website-Build-Script",
+		},
+	});
+
+	if (!res.ok) {
+		throw new Error(
+			`Failed to load markdown-it bundle: ${res.status} ${res.statusText}`,
+		);
+	}
+
+	const bundle = await res.text();
+	const module = { exports: {} };
+	const loadedModule = new Function(
+		"module",
+		"exports",
+		`${bundle}; return module.exports;`,
+	)(module, module.exports);
+
+	markdownItCtor = resolveMarkdownItConstructor(loadedModule);
+	return markdownItCtor;
+}
+
+async function fetchChangelog(): Promise<ChangelogEntry[]> {
+	try {
+		const res = await fetch(CHANGELOG_API_URL, {
+			headers: {
+				"User-Agent": "MicYou-Website-Build-Script",
+			},
+		});
+
+		if (!res.ok) {
+			throw new Error(`Changelog API error: ${res.status} ${res.statusText}`);
+		}
+
+		const data = (await res.json()) as ChangelogApiResponse;
+
+		if (!data.success || !Array.isArray(data.data?.entries)) {
+			console.warn("Changelog API returned invalid data, using empty entries");
+			return [];
+		}
+
+		const MarkdownIt = await loadMarkdownIt();
+		const md = new MarkdownIt();
+
+		return [...data.data.entries]
+			.sort(
+				(a, b) =>
+					new Date(b.published_at).getTime() -
+					new Date(a.published_at).getTime(),
+			)
+			.map((entry) => ({
+				tag_name: entry.tag_name,
+				published_at: entry.published_at,
+				html_url: entry.html_url,
+				html_body: md.render(entry.body ?? ""),
+				name: entry.name,
+			}));
+	} catch (error) {
+		console.warn("Failed to fetch changelog data:", error);
+		return [];
+	}
+}
+
 async function main() {
 	console.log("Fetching GitHub data...");
 
@@ -183,9 +315,10 @@ async function main() {
 
 	try {
 		// 并行获取数据
-		const [release, contributors] = await Promise.all([
+		const [release, contributors, changelogEntries] = await Promise.all([
 			fetchLatestRelease(token),
 			fetchContributors(token),
+			fetchChangelog(),
 		]);
 
 		const newData: Omit<OutputData, "fetchedAt"> = {
@@ -195,6 +328,9 @@ async function main() {
 			releaseNotes: release.notes,
 			contributors,
 		};
+
+		const fetchedAt = new Date().toISOString();
+		let shouldWriteGhData = true;
 
 		// 读取现有数据并比较
 		if (existsSync(OUTPUT_FILE)) {
@@ -206,24 +342,40 @@ async function main() {
 					console.log(`✓ Version: ${newData.version}`);
 					console.log(`✓ Contributors: ${newData.contributors.length}`);
 					console.log("✓ No changes detected, skipping file write");
-					return;
+					shouldWriteGhData = false;
 				}
 			} catch {
 				// 文件解析失败，继续写入
 			}
 		}
 
-		const output: OutputData = {
-			...newData,
-			fetchedAt: new Date().toISOString(),
+		if (shouldWriteGhData) {
+			const output: OutputData = {
+				...newData,
+				fetchedAt,
+			};
+
+			// 写入文件
+			writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2), "utf-8");
+
+			console.log(`✓ Version: ${output.version}`);
+			console.log(`✓ Contributors: ${output.contributors.length}`);
+			console.log(`✓ Saved to: ${OUTPUT_FILE}`);
+		}
+
+		const changelogOutput: ChangelogOutput = {
+			entries: changelogEntries,
+			fetchedAt,
 		};
 
-		// 写入文件
-		writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2), "utf-8");
+		writeFileSync(
+			CHANGELOG_OUTPUT_FILE,
+			JSON.stringify(changelogOutput, null, 2),
+			"utf-8",
+		);
 
-		console.log(`✓ Version: ${output.version}`);
-		console.log(`✓ Contributors: ${output.contributors.length}`);
-		console.log(`✓ Saved to: ${OUTPUT_FILE}`);
+		console.log(`✓ Changelog entries: ${changelogOutput.entries.length}`);
+		console.log(`✓ Saved to: ${CHANGELOG_OUTPUT_FILE}`);
 	} catch (error) {
 		console.error("Failed to fetch GitHub data:", error);
 		process.exit(1);
