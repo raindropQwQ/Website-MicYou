@@ -4,6 +4,4 @@ description: MicYou 版本更新歷史記錄
 layout: page
 ---
 
-# 更新日誌
-
 <ChangelogList />
