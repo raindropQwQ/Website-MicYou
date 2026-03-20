@@ -1,49 +1,12 @@
 /**
- * 从 GitHub API 获取贡献者和发布数据，保存到 public/ghdata.json
+ * 从 GitHub API 获取贡献者和发布数据，保存到 src/ghdata.json 和 src/changelog.json
  * 用于避免客户端 API 调用触发速率限制
  */
 
-type FsModule = {
-	existsSync: (path: string) => boolean;
-	readFileSync: (path: string, encoding: string) => string;
-	writeFileSync: (path: string, data: string, encoding: string) => void;
-};
-
-type PathModule = {
-	dirname: (path: string) => string;
-	join: (...paths: string[]) => string;
-};
-
-type UrlModule = {
-	fileURLToPath: (url: string | URL) => string;
-};
-
-type ProcessLike = {
-	env: Record<string, string | undefined>;
-	exit: (code?: number) => never;
-	getBuiltinModule: (id: string) => unknown;
-};
-
-function getProcessLike(): ProcessLike {
-	const processLike = (
-		globalThis as typeof globalThis & { process?: ProcessLike }
-	).process;
-
-	if (!processLike?.getBuiltinModule) {
-		throw new Error("Node built-in modules are unavailable in this runtime");
-	}
-
-	return processLike;
-}
-
-const processLike = getProcessLike();
-
-const { existsSync, readFileSync, writeFileSync } =
-	processLike.getBuiltinModule("node:fs") as FsModule;
-const { dirname, join } = processLike.getBuiltinModule(
-	"node:path",
-) as PathModule;
-const { fileURLToPath } = processLike.getBuiltinModule("node:url") as UrlModule;
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+import MarkdownIt from "markdown-it";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -214,16 +177,6 @@ function isDataEqual(
 }
 
 const CHANGELOG_OUTPUT_FILE = join(SRC_DIR, "changelog.json");
-const MARKDOWN_IT_BUNDLE_URL =
-	"https://cdn.jsdelivr.net/npm/markdown-it@14/dist/markdown-it.min.js";
-
-type MarkdownRenderer = {
-	render: (source: string) => string;
-};
-
-type MarkdownItConstructor = new () => MarkdownRenderer;
-
-let markdownItCtor: MarkdownItConstructor | null = null;
 
 interface ChangelogEntry {
 	tag_name: string;
@@ -238,54 +191,6 @@ interface ChangelogOutput {
 	fetchedAt: string;
 }
 
-function resolveMarkdownItConstructor(
-	moduleExports: unknown,
-): MarkdownItConstructor {
-	const candidate =
-		typeof moduleExports === "function"
-			? moduleExports
-			: typeof moduleExports === "object" &&
-					moduleExports !== null &&
-					"default" in moduleExports
-				? moduleExports.default
-				: null;
-
-	if (typeof candidate !== "function") {
-		throw new Error("Invalid markdown-it export");
-	}
-
-	return candidate as MarkdownItConstructor;
-}
-
-async function loadMarkdownIt(): Promise<MarkdownItConstructor> {
-	if (markdownItCtor) {
-		return markdownItCtor;
-	}
-
-	const res = await fetch(MARKDOWN_IT_BUNDLE_URL, {
-		headers: {
-			"User-Agent": "MicYou-Website-Build-Script",
-		},
-	});
-
-	if (!res.ok) {
-		throw new Error(
-			`Failed to load markdown-it bundle: ${res.status} ${res.statusText}`,
-		);
-	}
-
-	const bundle = await res.text();
-	const module = { exports: {} };
-	const loadedModule = new Function(
-		"module",
-		"exports",
-		`${bundle}; return module.exports;`,
-	)(module, module.exports);
-
-	markdownItCtor = resolveMarkdownItConstructor(loadedModule);
-	return markdownItCtor;
-}
-
 interface GitHubReleaseEntry {
 	tag_name: string;
 	name: string;
@@ -295,17 +200,18 @@ interface GitHubReleaseEntry {
 	draft: boolean;
 }
 
-async function fetchChangelog(token?: string): Promise<ChangelogEntry[]> {
+async function fetchChangelog(
+	token?: string,
+): Promise<ChangelogEntry[] | null> {
 	try {
 		const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases`;
 		const releases = await fetchJSON<GitHubReleaseEntry[]>(url, token);
 
 		if (!Array.isArray(releases)) {
-			console.warn("Releases API returned non-array, using empty entries");
-			return [];
+			console.warn("Releases API returned non-array");
+			return null;
 		}
 
-		const MarkdownIt = await loadMarkdownIt();
 		const md = new MarkdownIt();
 
 		return releases
@@ -324,7 +230,7 @@ async function fetchChangelog(token?: string): Promise<ChangelogEntry[]> {
 			}));
 	} catch (error) {
 		console.warn("Failed to fetch changelog data:", error);
-		return [];
+		return null;
 	}
 }
 
@@ -332,7 +238,7 @@ async function main() {
 	console.log("Fetching GitHub data...");
 
 	// GitHub Token 可通过环境变量 GITHUB_TOKEN 设置
-	const token = processLike.env.GITHUB_TOKEN;
+	const token = process.env.GITHUB_TOKEN;
 
 	try {
 		// 并行获取数据
@@ -385,7 +291,7 @@ async function main() {
 		}
 
 		// changelog 获取失败时保留旧数据，避免空数组覆盖
-		if (changelogEntries.length > 0) {
+		if (changelogEntries !== null && changelogEntries.length > 0) {
 			const changelogOutput: ChangelogOutput = {
 				entries: changelogEntries,
 				fetchedAt,
@@ -400,7 +306,9 @@ async function main() {
 			console.log(`✓ Changelog entries: ${changelogOutput.entries.length}`);
 			console.log(`✓ Saved to: ${CHANGELOG_OUTPUT_FILE}`);
 		} else if (existsSync(CHANGELOG_OUTPUT_FILE)) {
-			console.log("⚠ Changelog fetch returned empty, keeping existing data");
+			console.log(
+				"⚠ Changelog fetch failed or returned empty, keeping existing data",
+			);
 		} else {
 			// 没有旧数据也没有新数据，写空文件
 			writeFileSync(
@@ -412,7 +320,7 @@ async function main() {
 		}
 	} catch (error) {
 		console.error("Failed to fetch GitHub data:", error);
-		processLike.exit(1);
+		process.exit(1);
 	}
 }
 
