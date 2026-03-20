@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useData } from "vitepress";
 import changelogData from "../../../../src/changelog.json";
 
 interface ChangelogEntry {
@@ -9,11 +10,19 @@ interface ChangelogEntry {
 	name: string;
 }
 
+const { lang } = useData();
 const entries: ChangelogEntry[] = changelogData.entries || [];
+
+const localeMap: Record<string, string> = {
+	"zh-CN": "zh-CN",
+	en: "en-US",
+	"zh-TW": "zh-TW",
+};
 
 function formatDate(dateString: string): string {
 	const date = new Date(dateString);
-	return date.toLocaleDateString("zh-CN", {
+	const locale = localeMap[lang.value] || "zh-CN";
+	return date.toLocaleDateString(locale, {
 		year: "numeric",
 		month: "long",
 		day: "numeric",
