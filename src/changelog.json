@@ -1,6 +1,13 @@
 {
 	"entries": [
 		{
+			"tag_name": "v1.2.0",
+			"published_at": "2026-04-02T13:37:16Z",
+			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.2.0",
+			"html_body": "<h2>What's Changed</h2>\n<ul>\n<li>feat(audio): 添加Android音频源选择功能 by @a2heng in https://github.com/LanRhyme/MicYou/pull/149</li>\n<li>Feat(monitor): 为桌面端添加了监听按钮 by @UsonTong in https://github.com/LanRhyme/MicYou/pull/146</li>\n<li>更换许可证为 GPL-3.0 by @WingChunWong in https://github.com/LanRhyme/MicYou/pull/152</li>\n<li>ref: 优化 UI by @WingChunWong in https://github.com/LanRhyme/MicYou/pull/145</li>\n<li>docs: 添加爱发电徽章和更好的表述 [skip ci] by @WingChunWong in https://github.com/LanRhyme/MicYou/pull/157</li>\n<li>ci: 更新 macOS 构建工作流 by @WingChunWong in https://github.com/LanRhyme/MicYou/pull/158</li>\n<li>docs: add TG badge [skip ci] by @WingChunWong in https://github.com/LanRhyme/MicYou/pull/160</li>\n<li>style: 优化 UI by @WingChunWong in https://github.com/LanRhyme/MicYou/pull/162</li>\n<li>docs: 优化 HTML 结构 [skip ci] by @WingChunWong in https://github.com/LanRhyme/MicYou/pull/164</li>\n<li>feat: 支持从镜像源更新 by @WingChunWong in https://github.com/LanRhyme/MicYou/pull/165</li>\n<li>ui: 更好的设置页 by @WingChunWong in https://github.com/LanRhyme/MicYou/pull/166</li>\n<li>fix(audio): 修复 Ulunas 降噪 OLA 增益补偿缺失导致的音量衰减问题 by @moumoum0 in https://github.com/LanRhyme/MicYou/pull/170</li>\n</ul>\n<p><strong>Full Changelog</strong>: https://github.com/LanRhyme/MicYou/compare/v1.1.5...v1.2.0</p>\n",
+			"name": "v1.2.0"
+		},
+		{
 			"tag_name": "v1.1.5",
 			"published_at": "2026-03-08T14:54:55Z",
 			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.1.5",
@@ -99,5 +106,5 @@
 			"name": "v1.0.0-20260211-0143"
 		}
 	],
-	"fetchedAt": "2026-04-02T13:16:24.722Z"
+	"fetchedAt": "2026-04-02T18:58:20.349Z"
 }
