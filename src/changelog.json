@@ -1,6 +1,13 @@
 {
 	"entries": [
 		{
+			"tag_name": "v1.2.1",
+			"published_at": "2026-04-06T15:25:40Z",
+			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.2.1",
+			"html_body": "<h2>更新日志:</h2>\n<h3>✨ 新功能</h3>\n<ul>\n<li>新增详细的错误处理和用户友好的错误提示</li>\n<li>新增错误对话框组件，显示恢复建议</li>\n<li>桌面端配置存储从注册表改为文件存储</li>\n</ul>\n<h3>🐛 Bug 修复</h3>\n<ul>\n<li>修复音频处理缓冲区大小问题</li>\n<li>修复 VB-Cable 虚拟音频设备安装和管理功能</li>\n<li>修复内存泄漏问题</li>\n</ul>\n<h3>⚡ 性能优化</h3>\n<ul>\n<li>优化音频处理性能，减少内存分配</li>\n<li>改进协程生命周期管理</li>\n</ul>\n<p>&lt;img width=&quot;726&quot; height=&quot;122&quot; alt=&quot;image&quot; src=&quot;https://github.com/user-attachments/assets/08d8c898-a9e1-4478-b010-8a669c8bd0eb&quot; /&gt;</p>\n<p><strong>Full Changelog</strong>: https://github.com/LanRhyme/MicYou/compare/v1.2.0...v1.2.1</p>\n",
+			"name": "v1.2.1"
+		},
+		{
 			"tag_name": "v1.2.0",
 			"published_at": "2026-04-02T13:37:16Z",
 			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.2.0",
@@ -106,5 +113,5 @@
 			"name": "v1.0.0-20260211-0143"
 		}
 	],
-	"fetchedAt": "2026-04-06T13:13:41.239Z"
+	"fetchedAt": "2026-04-06T19:02:00.977Z"
 }
