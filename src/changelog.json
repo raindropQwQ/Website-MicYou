@@ -1,6 +1,13 @@
 {
 	"entries": [
 		{
+			"tag_name": "v1.2.2",
+			"published_at": "2026-04-19T04:01:08Z",
+			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.2.2",
+			"html_body": "<h2>更新日志 / Changelog v1.2.2</h2>\n<h3>新功能 ✨ / New Features ✨</h3>\n<ul>\n<li><strong>音频增强功能</strong>：新增音频增强功能与性能优化，添加性能模式说明和帮助弹窗\n<strong>Audio Enhancement</strong>: Added audio enhancement features with performance optimization, added performance mode description and help dialog</li>\n<li><strong>Android权限管理</strong>：添加Android权限管理功能\n<strong>Android Permission Management</strong>: Added Android permission management functionality</li>\n<li><strong>蓝牙诊断工具</strong>：添加蓝牙诊断工具和错误处理\n<strong>Bluetooth Diagnostics</strong>: Added Bluetooth diagnostic tools and error handling</li>\n<li><strong>Mirror酱对接</strong>：对接 Mirror 酱更新渠道\n<strong>MirrorChyan Integration</strong>: Integrated MirrorChyan update channel</li>\n</ul>\n<h3>修复 🐛 / Bug Fixes 🐛</h3>\n<ul>\n<li><strong>音频处理修复</strong>：修复音频处理中的缓冲区问题，优化音频处理参数，修复进程状态检查中的异常处理\n<strong>Audio Processing</strong>: Fixed buffer issues in audio processing, optimized audio processing parameters, fixed exception handling in process state checking</li>\n<li><strong>动画修复</strong>：修复动画延迟计算的整数溢出问题并优化音频可视化器配置\n<strong>Animation</strong>: Fixed integer overflow in animation delay calculation and optimized audio visualizer configuration</li>\n<li><strong>网络连接修复</strong>：增强数据包大小验证，改进网络连接处理和资源清理逻辑\n<strong>Network Connection</strong>: Enhanced packet size validation, improved network connection handling and resource cleanup logic</li>\n<li><strong>协程泄漏修复</strong>：添加停止操作检查避免协程泄漏\n<strong>Coroutine Leak</strong>: Added stop operation check to prevent coroutine leaks</li>\n<li><strong>自动启动修复</strong>：实现应用启动时自动开始流传输\n<strong>Auto-start</strong>: Implemented auto-start streaming on app launch</li>\n</ul>\n<h3>重构 ♻️ / Refactoring ♻️</h3>\n<ul>\n<li><strong>音频处理优化</strong>：优化进程启动检测逻辑，提取动画常量到统一配置对象，移除音频预设功能\n<strong>Audio Processing Optimization</strong>: Optimized process startup detection logic, extracted animation constants to unified configuration object, removed audio preset feature</li>\n<li><strong>插件系统重构</strong>：重构插件宿主实现，提取公共基类，简化类加载逻辑\n<strong>Plugin System Refactoring</strong>: Refactored plugin host implementation, extracted common base class, simplified class loading logic</li>\n<li><strong>代码优化</strong>：集中管理常量并优化错误处理，代码优化整合\n<strong>Code Optimization</strong>: Centralized constant management and optimized error handling, code optimization integration</li>\n</ul>\n<h3>构建 📦 / Build 📦</h3>\n<ul>\n<li>添加发布签名配置和ProGuard规则以优化APK大小\nAdded release signing configuration and ProGuard rules to optimize APK size</li>\n<li>添加额外的Java模块支持\nAdded additional Java module support</li>\n<li>更新项目版本号为1.2.2和版本码为15\nUpdated project version to 1.2.2 and version code to 15</li>\n</ul>\n<p><a href=\"https://mirrorchyan.com/zh/projects?rid=MicYou\">已有 Mirror酱 CDK？前往 Mirror酱 高速下载</a></p>\n<p><strong>Full Changelog</strong>: https://github.com/LanRhyme/MicYou/compare/v1.2.1...v1.2.2</p>\n",
+			"name": "v1.2.2"
+		},
+		{
 			"tag_name": "v1.2.1",
 			"published_at": "2026-04-06T15:25:40Z",
 			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.2.1",
@@ -113,5 +120,5 @@
 			"name": "v1.0.0-20260211-0143"
 		}
 	],
-	"fetchedAt": "2026-04-19T02:45:48.815Z"
+	"fetchedAt": "2026-04-19T07:21:08.789Z"
 }
