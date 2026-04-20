@@ -1,6 +1,13 @@
 {
 	"entries": [
 		{
+			"tag_name": "v1.2.3",
+			"published_at": "2026-04-20T06:58:55Z",
+			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.2.3",
+			"html_body": "<h2>v1.2.3</h2>\n<h3>✨ 新功能 / New Features</h3>\n<ul>\n<li>\n<p>🎨 <strong>主题系统重构为 Material 3 Expressive</strong> - 全面升级主题系统，带来更现代的视觉体验 (https://github.com/LanRhyme/MicYou/pull/190)</p>\n<ul>\n<li><strong>Theme system refactored to Material 3 Expressive</strong> - Complete theme system upgrade with a more modern visual experience (https://github.com/LanRhyme/MicYou/pull/190)</li>\n</ul>\n</li>\n<li>\n<p>📁 <strong>集成 FileKit 库</strong> - 优化文件选择体验，提升跨平台文件操作的一致性 (https://github.com/LanRhyme/MicYou/pull/186)</p>\n<ul>\n<li><strong>Integrated FileKit library</strong> - Optimized file selection experience and improved cross-platform file operation consistency (https://github.com/LanRhyme/MicYou/pull/186)</li>\n</ul>\n</li>\n</ul>\n<h3>🐛 问题修复 / Bug Fixes</h3>\n<ul>\n<li>🛠️ <strong>修复镜像CDK空值问题</strong> - 当镜像CDK为空时直接返回，避免无效操作\n<ul>\n<li><strong>Fixed mirror CDK empty value issue</strong> - Directly return when mirror CDK is empty to avoid invalid operations</li>\n</ul>\n</li>\n</ul>\n<p><strong>Full Changelog</strong>: https://github.com/LanRhyme/MicYou/compare/v1.2.2...v1.2.3</p>\n<p><a href=\"https://mirrorchyan.com/zh/projects?rid=MicYou\">已有 Mirror酱 CDK？前往 Mirror酱 高速下载</a></p>\n",
+			"name": "v1.2.3"
+		},
+		{
 			"tag_name": "v1.2.2",
 			"published_at": "2026-04-19T04:01:08Z",
 			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.2.2",
@@ -120,5 +127,5 @@
 			"name": "v1.0.0-20260211-0143"
 		}
 	],
-	"fetchedAt": "2026-04-20T02:47:19.223Z"
+	"fetchedAt": "2026-04-20T08:09:26.072Z"
 }
