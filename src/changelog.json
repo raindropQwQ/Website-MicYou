@@ -1,6 +1,13 @@
 {
 	"entries": [
 		{
+			"tag_name": "v1.3.2",
+			"published_at": "2026-05-16T06:54:08Z",
+			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.2",
+			"html_body": "<h2>What's Changed</h2>\n<ul>\n<li>fix: 改进 IP 地址获取逻辑 by @ChouChiu in https://github.com/LanRhyme/MicYou/pull/225</li>\n</ul>\n<p><strong>Full Changelog</strong>: https://github.com/LanRhyme/MicYou/compare/v1.3.1...v1.3.2</p>\n",
+			"name": "v1.3.2"
+		},
+		{
 			"tag_name": "v1.3.1",
 			"published_at": "2026-05-15T07:21:51Z",
 			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.1",
@@ -141,5 +148,5 @@
 			"name": "v1.0.0-20260211-0143"
 		}
 	],
-	"fetchedAt": "2026-05-16T02:57:35.357Z"
+	"fetchedAt": "2026-05-16T08:05:33.375Z"
 }

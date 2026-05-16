@@ -1,8 +1,8 @@
 {
-	"version": "1.3.1",
-	"releaseUrl": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.1",
-	"releaseDate": "2026-05-15T07:21:51Z",
-	"releaseNotes": "## What's Changed\r\n* i18n: 补全 VB-Cable 相关字符串的喵语本地化 by @Jack-Huang-2020 in https://github.com/LanRhyme/MicYou/pull/207\r\n* 改进 macOS 界面及相关文档 by @WhatDamon in https://github.com/LanRhyme/MicYou/pull/210\r\n* ref: Remove Bluetooth support and related code by @ChouChiu in https://github.com/LanRhyme/MicYou/pull/212\r\n* fix: 数据目录迁移至平台标准路径 by @raindropQwQ in https://github.com/LanRhyme/MicYou/pull/214\r\n* feat(Web): 新增 Web 模式传输音频 by @ChinsaaWei in https://github.com/LanRhyme/MicYou/pull/220\r\n* 重构Web UI，使用Alpine.js提供更强的前端交互能力 by @ChinsaaWei in https://github.com/LanRhyme/MicYou/pull/222\r\n* Feat: 音频处理链路可视化与高级调参  by @LanRhyme in https://github.com/LanRhyme/MicYou/pull/223\r\n\r\n\r\n**Full Changelog**: https://github.com/LanRhyme/MicYou/compare/v1.3.0...v1.3.1\r\n\r\n[已有 Mirror酱 CDK？前往 Mirror酱 高速下载](https://mirrorchyan.com/zh/projects?rid=MicYou)\r\n\r\n[重庆大学镜像站高速下载](https://mirrors.cqu.edu.cn/github-release/LanRhyme/MicYou/)",
+	"version": "1.3.2",
+	"releaseUrl": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.2",
+	"releaseDate": "2026-05-16T06:54:08Z",
+	"releaseNotes": "## What's Changed\r\n- fix: 改进 IP 地址获取逻辑 by @ChouChiu in https://github.com/LanRhyme/MicYou/pull/225\r\n\r\n\r\n**Full Changelog**: https://github.com/LanRhyme/MicYou/compare/v1.3.1...v1.3.2",
 	"contributors": [],
-	"fetchedAt": "2026-05-15T14:08:41.722Z"
+	"fetchedAt": "2026-05-16T08:05:33.375Z"
 }
