@@ -1,6 +1,13 @@
 {
 	"entries": [
 		{
+			"tag_name": "v1.3.4",
+			"published_at": "2026-05-23T09:18:49Z",
+			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.4",
+			"html_body": "<h2>What's Changed</h2>\n<ul>\n<li>哎嘿(忘记删这个多余的判断了 by @shulng in https://github.com/LanRhyme/MicYou/pull/235</li>\n<li>feat: UDP连接检查 by @LanRhyme in https://github.com/LanRhyme/MicYou/pull/239</li>\n</ul>\n<p><strong>Full Changelog</strong>: https://github.com/LanRhyme/MicYou/compare/v1.3.3...v1.3.4</p>\n",
+			"name": "v1.3.4"
+		},
+		{
 			"tag_name": "v1.3.3",
 			"published_at": "2026-05-20T11:11:53Z",
 			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.3",
@@ -155,5 +162,5 @@
 			"name": "v1.0.0-20260211-0143"
 		}
 	],
-	"fetchedAt": "2026-05-23T08:20:40.199Z"
+	"fetchedAt": "2026-05-23T13:26:41.599Z"
 }
