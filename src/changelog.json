@@ -1,6 +1,13 @@
 {
 	"entries": [
 		{
+			"tag_name": "v1.3.4hotfix",
+			"published_at": "2026-05-24T07:57:26Z",
+			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.4hotfix",
+			"html_body": "<p><strong>Full Changelog</strong>: https://github.com/LanRhyme/MicYou/compare/v1.3.4...v1.3.4hotfix</p>\n",
+			"name": "v1.3.4hotfix"
+		},
+		{
 			"tag_name": "v1.3.4",
 			"published_at": "2026-05-23T09:18:49Z",
 			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.4",
@@ -162,5 +169,5 @@
 			"name": "v1.0.0-20260211-0143"
 		}
 	],
-	"fetchedAt": "2026-05-24T03:40:10.354Z"
+	"fetchedAt": "2026-05-24T08:30:08.719Z"
 }
