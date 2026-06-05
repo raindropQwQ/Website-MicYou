@@ -8,7 +8,7 @@
 			"login": "ChouChiu",
 			"avatar_url": "https://avatars.githubusercontent.com/u/108796769?v=4",
 			"html_url": "https://github.com/ChouChiu",
-			"contributions": 58
+			"contributions": 59
 		},
 		{
 			"login": "WhatDamon",
@@ -29,15 +29,15 @@
 			"contributions": 7
 		},
 		{
-			"login": "a2heng",
-			"avatar_url": "https://avatars.githubusercontent.com/u/17189158?v=4",
-			"html_url": "https://github.com/a2heng",
-			"contributions": 4
-		},
-		{
 			"login": "raindropQwQ",
 			"avatar_url": "https://avatars.githubusercontent.com/u/102001942?v=4",
 			"html_url": "https://github.com/raindropQwQ",
+			"contributions": 4
+		},
+		{
+			"login": "a2heng",
+			"avatar_url": "https://avatars.githubusercontent.com/u/17189158?v=4",
+			"html_url": "https://github.com/a2heng",
 			"contributions": 4
 		},
 		{
@@ -47,9 +47,9 @@
 			"contributions": 3
 		},
 		{
-			"login": "moumoum0",
-			"avatar_url": "https://avatars.githubusercontent.com/u/93870731?v=4",
-			"html_url": "https://github.com/moumoum0",
+			"login": "Hakuin123",
+			"avatar_url": "https://avatars.githubusercontent.com/u/108911712?v=4",
+			"html_url": "https://github.com/Hakuin123",
 			"contributions": 2
 		},
 		{
@@ -59,15 +59,27 @@
 			"contributions": 2
 		},
 		{
-			"login": "Hakuin123",
-			"avatar_url": "https://avatars.githubusercontent.com/u/108911712?v=4",
-			"html_url": "https://github.com/Hakuin123",
+			"login": "moumoum0",
+			"avatar_url": "https://avatars.githubusercontent.com/u/93870731?v=4",
+			"html_url": "https://github.com/moumoum0",
 			"contributions": 2
+		},
+		{
+			"login": "LemonAdorable",
+			"avatar_url": "https://avatars.githubusercontent.com/u/21191585?v=4",
+			"html_url": "https://github.com/LemonAdorable",
+			"contributions": 1
 		},
 		{
 			"login": "ArturoAtomplay",
 			"avatar_url": "https://avatars.githubusercontent.com/u/64356325?v=4",
 			"html_url": "https://github.com/ArturoAtomplay",
+			"contributions": 1
+		},
+		{
+			"login": "qiuyongjun",
+			"avatar_url": "https://avatars.githubusercontent.com/u/34089883?v=4",
+			"html_url": "https://github.com/qiuyongjun",
 			"contributions": 1
 		},
 		{
@@ -87,13 +99,7 @@
 			"avatar_url": "https://avatars.githubusercontent.com/u/86581225?v=4",
 			"html_url": "https://github.com/Windsland52",
 			"contributions": 1
-		},
-		{
-			"login": "qiuyongjun",
-			"avatar_url": "https://avatars.githubusercontent.com/u/34089883?v=4",
-			"html_url": "https://github.com/qiuyongjun",
-			"contributions": 1
 		}
 	],
-	"fetchedAt": "2026-06-04T20:06:45.055Z"
+	"fetchedAt": "2026-06-05T03:51:53.604Z"
 }
