@@ -1,6 +1,13 @@
 {
 	"entries": [
 		{
+			"tag_name": "v1.3.5",
+			"published_at": "2026-06-07T17:39:57Z",
+			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.5",
+			"html_body": "<h2>What's Changed</h2>\n<ul>\n<li>新增iOS客户端协议支持 by @ChinsaaWei in https://github.com/LanRhyme/MicYou/pull/240</li>\n<li>feat(desktop): 添加 IP 地址选择与自动绑定支持 by @qiuyongjun in https://github.com/LanRhyme/MicYou/pull/238</li>\n<li>docs: improve documents [skip ci] by @ChouChiu in https://github.com/LanRhyme/MicYou/pull/243</li>\n<li>fix:修复 Linux PipeWire 虚拟音频输出路由 by @LemonAdorable in https://github.com/LanRhyme/MicYou/pull/242</li>\n</ul>\n<h2>New Contributors</h2>\n<ul>\n<li>@qiuyongjun made their first contribution in https://github.com/LanRhyme/MicYou/pull/238</li>\n<li>@LemonAdorable made their first contribution in https://github.com/LanRhyme/MicYou/pull/242</li>\n</ul>\n<p><strong>Full Changelog</strong>: https://github.com/LanRhyme/MicYou/compare/v1.3.4...v1.3.5</p>\n",
+			"name": "v1.3.5"
+		},
+		{
 			"tag_name": "v1.3.4hotfix",
 			"published_at": "2026-05-24T07:57:26Z",
 			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.4hotfix",
@@ -169,5 +176,5 @@
 			"name": "v1.0.0-20260211-0143"
 		}
 	],
-	"fetchedAt": "2026-06-07T13:53:32.651Z"
+	"fetchedAt": "2026-06-07T19:22:59.795Z"
 }
