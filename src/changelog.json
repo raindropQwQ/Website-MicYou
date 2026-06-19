@@ -1,6 +1,13 @@
 {
 	"entries": [
 		{
+			"tag_name": "v2.0.0-alpha.1",
+			"published_at": "2026-06-19T05:26:22Z",
+			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v2.0.0-alpha.1",
+			"html_body": "<h2>What's Changed</h2>\n<ul>\n<li>docs: 相关文档更新 by @WhatDamon in https://github.com/LanRhyme/MicYou/pull/247</li>\n<li>修复 macOS 毛玻璃以及 onnx 编译问题 by @ChouChiu in https://github.com/LanRhyme/MicYou/pull/248</li>\n<li>ref: better structure by @ChouChiu in https://github.com/LanRhyme/MicYou/pull/249</li>\n<li>feat(audio): add BlackHole virtual audio device support for macOS by @ChouChiu in https://github.com/LanRhyme/MicYou/pull/250</li>\n<li>Refactor：去除KMP桌面端 by @ChinsaaWei in https://github.com/LanRhyme/MicYou/pull/251</li>\n<li>feat(blackhole): add non-macOS stubs for audio device functions by @ChouChiu in https://github.com/LanRhyme/MicYou/pull/253</li>\n<li>迁移至 Tauri by @LanRhyme</li>\n</ul>\n<p><strong>Full Changelog</strong>: https://github.com/LanRhyme/MicYou/compare/v1.3.5...v2.0.0-alpha.1</p>\n",
+			"name": "v2.0.0-alpha.1"
+		},
+		{
 			"tag_name": "v1.3.5",
 			"published_at": "2026-06-07T17:39:57Z",
 			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v1.3.5",
@@ -176,5 +183,5 @@
 			"name": "v1.0.0-20260211-0143"
 		}
 	],
-	"fetchedAt": "2026-06-19T04:21:55.374Z"
+	"fetchedAt": "2026-06-19T10:26:50.852Z"
 }
