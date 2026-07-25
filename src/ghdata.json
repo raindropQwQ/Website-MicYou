@@ -17,15 +17,15 @@
 			"contributions": 28
 		},
 		{
-			"login": "snowdropQwQ",
-			"avatar_url": "https://avatars.githubusercontent.com/u/85062843?v=4",
-			"html_url": "https://github.com/snowdropQwQ",
-			"contributions": 7
-		},
-		{
 			"login": "Jack-Huang-2020",
 			"avatar_url": "https://avatars.githubusercontent.com/u/178568507?v=4",
 			"html_url": "https://github.com/Jack-Huang-2020",
+			"contributions": 7
+		},
+		{
+			"login": "snowdropQwQ",
+			"avatar_url": "https://avatars.githubusercontent.com/u/85062843?v=4",
+			"html_url": "https://github.com/snowdropQwQ",
 			"contributions": 7
 		},
 		{
@@ -35,15 +35,15 @@
 			"contributions": 7
 		},
 		{
-			"login": "TianFengrui20090305",
-			"avatar_url": "https://avatars.githubusercontent.com/u/110520583?v=4",
-			"html_url": "https://github.com/TianFengrui20090305",
-			"contributions": 4
-		},
-		{
 			"login": "raindropQwQ",
 			"avatar_url": "https://avatars.githubusercontent.com/u/102001942?v=4",
 			"html_url": "https://github.com/raindropQwQ",
+			"contributions": 4
+		},
+		{
+			"login": "TianFengrui20090305",
+			"avatar_url": "https://avatars.githubusercontent.com/u/110520583?v=4",
+			"html_url": "https://github.com/TianFengrui20090305",
 			"contributions": 4
 		},
 		{
@@ -71,6 +71,12 @@
 			"contributions": 2
 		},
 		{
+			"login": "JF137575",
+			"avatar_url": "https://avatars.githubusercontent.com/u/179101703?v=4",
+			"html_url": "https://github.com/JF137575",
+			"contributions": 1
+		},
+		{
 			"login": "ArturoAtomplay",
 			"avatar_url": "https://avatars.githubusercontent.com/u/64356325?v=4",
 			"html_url": "https://github.com/ArturoAtomplay",
@@ -95,17 +101,17 @@
 			"contributions": 1
 		},
 		{
-			"login": "Windsland52",
-			"avatar_url": "https://avatars.githubusercontent.com/u/86581225?v=4",
-			"html_url": "https://github.com/Windsland52",
-			"contributions": 1
-		},
-		{
 			"login": "MistEO",
 			"avatar_url": "https://avatars.githubusercontent.com/u/18511905?v=4",
 			"html_url": "https://github.com/MistEO",
 			"contributions": 1
+		},
+		{
+			"login": "Windsland52",
+			"avatar_url": "https://avatars.githubusercontent.com/u/86581225?v=4",
+			"html_url": "https://github.com/Windsland52",
+			"contributions": 1
 		}
 	],
-	"fetchedAt": "2026-07-22T19:19:40.345Z"
+	"fetchedAt": "2026-07-25T08:06:13.613Z"
 }
