@@ -1,6 +1,13 @@
 {
 	"entries": [
 		{
+			"tag_name": "v2.0.1",
+			"published_at": "2026-08-12T08:11:49Z",
+			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v2.0.1",
+			"html_body": "<h2>What's Changed</h2>\n<ul>\n<li>修复热切换语言和主题等相关问题 by @tfr0305 in https://github.com/LanRhyme/MicYou/pull/300</li>\n<li>fix(desktop): repair packaging and CLI/TUI mode switching by @ChouChiu in https://github.com/LanRhyme/MicYou/pull/303</li>\n</ul>\n<p><strong>Full Changelog</strong>: https://github.com/LanRhyme/MicYou/compare/v2.0.0...v2.0.1</p>\n",
+			"name": "v2.0.1"
+		},
+		{
 			"tag_name": "v2.0.0",
 			"published_at": "2026-08-11T14:40:03Z",
 			"html_url": "https://github.com/LanRhyme/MicYou/releases/tag/v2.0.0",
@@ -190,5 +197,5 @@
 			"name": "v1.0.0-20260211-0143"
 		}
 	],
-	"fetchedAt": "2026-08-12T07:24:06.193Z"
+	"fetchedAt": "2026-08-12T13:08:41.294Z"
 }
