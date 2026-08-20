@@ -71,12 +71,6 @@
 			"contributions": 2
 		},
 		{
-			"login": "CrustyMozarella",
-			"avatar_url": "https://avatars.githubusercontent.com/u/311710869?v=4",
-			"html_url": "https://github.com/CrustyMozarella",
-			"contributions": 1
-		},
-		{
 			"login": "MakkiShizu",
 			"avatar_url": "https://avatars.githubusercontent.com/u/142442886?v=4",
 			"html_url": "https://github.com/MakkiShizu",
@@ -131,5 +125,5 @@
 			"contributions": 1
 		}
 	],
-	"fetchedAt": "2026-08-19T12:46:35.919Z"
+	"fetchedAt": "2026-08-20T18:38:31.524Z"
 }
